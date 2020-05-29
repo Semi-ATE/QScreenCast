@@ -1,11 +1,24 @@
 # QScreenCast
 A complete screen-caster behind a QToolButton
 
-| OS | Qt 5.9 | Qt 5.12 | Qt 5.14 | Qt 5.15 |
+# Known issues
+
+| Qt | 5.9.2 | 5.12.3 | 5.14 | 5.15 |
+| OS | anaconda | conda-forge | PIP | Qt 5.15 |
 |:---|:------:|:-------:|:-------:|:-------:|
-|Windows| ✗ | ✓ | ✓ | ? |
-|Linux| ✗ | ✗ | ✓ | ? |
-|MacOS| ✗ | ✗ | ? | ? |
+|Windows| ✗¹ | ✓ | ✓ | ? |
+|Linux| ✗ | ?¹ | ✓ | ? |
+|MacOS| ✗ | ? | ? | ? |
+
+²³
+
+Notes:
+  * ✗ : does not work
+  * ✓ : works
+  * ? : not tested yet
+  * ✗¹ : Complaining about availability of QMultiMedia, we need that to record the audio
+  * ?¹ : Not complaining about QMultiMedia but complaining about codecs ... need to see if I can install the codecs.
+
 
 ```shell
 conda install ffmpeg
