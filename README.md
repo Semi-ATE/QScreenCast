@@ -7,7 +7,7 @@ We need some 'services' from Qt, and it turns out that a same release doesn't im
 
 | Qt | 5.9.2 | 5.12.3 | 5.14 | 5.15 |
 |:----:|:------:|:-------:|:-------:|:-------:|
-| Channel | anaconda | conda-forge | PIP | Qt 5.15 |
+| **Channel** | anaconda | conda-forge | PIP | Qt 5.15 |
 |Windows| ✗¹ | ✓ | ✓ | ? |
 |Linux| ✗ | ?¹ | ✓ | ? |
 |MacOS| ✗ | ? | ? | ? |
