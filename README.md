@@ -4,8 +4,8 @@ A complete screen-caster behind a QToolButton
 # Known issues
 
 | Qt | 5.9.2 | 5.12.3 | 5.14 | 5.15 |
-| OS | anaconda | conda-forge | PIP | Qt 5.15 |
-|:---|:------:|:-------:|:-------:|:-------:|
+|:----:|:------:|:-------:|:-------:|:-------:|
+| Channel | anaconda | conda-forge | PIP | Qt 5.15 |
 |Windows| ✗¹ | ✓ | ✓ | ? |
 |Linux| ✗ | ?¹ | ✓ | ? |
 |MacOS| ✗ | ? | ? | ? |
