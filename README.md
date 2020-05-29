@@ -5,7 +5,7 @@ A complete screen-caster behind a QToolButton
 |:---|:------:|:-------:|:-------:|:-------:|
 |Windows| ✗ | ✓ | ✓ | ? |
 |Linux| ✗ | ✗ | ✓ | ? |
-|MacOS| ✗ | ? | ? | ? |
+|MacOS| ✗ | ✗ | ? | ? |
 
 ```shell
 conda install ffmpeg
