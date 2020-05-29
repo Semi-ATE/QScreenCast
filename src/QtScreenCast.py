@@ -36,6 +36,7 @@ PYQT_WINDOWS_MINIMUM_SUPPORTED_VERSION = "5.12.3"
 PYQT_LINUX_MINIMUM_SUPPORTED_VERSION = "5.14.2"
 PYQT_DARWIN_MINIMUM_SUPPORTED_VERSION = "5.14.2"
 
+VERBOSITY = True
 
 def is_pyqt_version_supported(actual_version, required_version):
     # all the test done are base on pyqt5
@@ -123,6 +124,8 @@ class ScreenCastToolButton(QtWidgets.QToolButton):
             pop_up_error_box(f"pyqt version is not support: {QT_VERSION} < {self.required_pyqt_version}")
             return
 
+        # TODO: maybe skip this, this way, if one doesn't have a microphone,
+        #       one can at least record the screen ...
         if not self.is_microphone_available:
             pop_up_error_box('system microphone is not available')
             return
@@ -305,6 +308,11 @@ class ScreenCastToolButton(QtWidgets.QToolButton):
 
 
 class AudioRecorder(QtMultimedia.QAudioRecorder):
+    """The audio recorder class."""
+
+    verbose = VERBOSITY
+    debug = False
+
     def __init__(self, audio_path):
         super().__init__()
         self.audio = audio_path
@@ -320,10 +328,11 @@ class AudioRecorder(QtMultimedia.QAudioRecorder):
     def get_available_audio_inputs(self):
         audio_inputs = list(set(self.audioInputs()))
         # TODO: check output for device with multiple audio inputs
-        print(self.audioInputs())
-        print(audio_inputs)
-        print(self.audioInput())
-        print(self.defaultAudioInput())
+        if self.debug:
+            print(self.audioInputs())
+            print(audio_inputs)
+            print(self.audioInput())
+            print(self.defaultAudioInput())
         return audio_inputs
 
     def set_audio_input(self, audio_input):
@@ -373,9 +382,10 @@ class VideoRecorder:
 
 
 class ScreenCastRecorder:
-    delay = 3000  # ms
+    delay = 3000  # ms TODO: we could tickle this out ouf the gif
     video_file = 'SSC#.mp4'
     temp_file = tempfile.gettempdir()
+    verbose = True
 
     def __init__(self, main_window, desktop_path, interval):
         super().__init__()
@@ -424,24 +434,33 @@ class ScreenCastRecorder:
         self.delay_timer.start(self.delay)
 
     def _delay_timer_time_out(self):
+        if self.verbose:
+            print("Start audio & video recording.")
         self.audio_recorder.start()
         self.video_recorder.start()
         self.recording_started = True
 
     def stop_recording(self):
-        # we don't need to store any thing if the recording doesn't not even started
+        # we don't need to store any thing while the recording didn't even start
         if not self.recording_started:
             self.delay_timer.stop()
             self.countdown.stop()
             return
-
+        if self.verbose:
+            print("Stop audio recording ... ", end='')
         self.audio_recorder.stop()
+        if self.verbose:
+            print("Done.")
+            print("Stop video recording ... ", end='')
         self.video_recorder.stop()
+        if self.verbose:
+            print("Done.")
         self.output = os.path.join(self.desktop_path, self._get_next_screencast_file())
         self.video_recorder.counter = 0
         q_rec = self.main_window.geometry()
         combine_process = Combiner(self.video, self.images, self.audio, self.output, (q_rec.height(), q_rec.width()))
-        combine_process.start()
+        combine_process.start()  # WTF!
+        combine_process.run()
         self.recording_started = False
 
     def _get_next_screencast_file(self):
@@ -467,7 +486,13 @@ class ScreenCastRecorder:
 
 # ffmpeg will be used to merge audio and video parts
 # video will be generated using the stored frames (screenshots)
+
+# TODO: move from multi-processing to QProcess
 class Combiner(Process):
+    """This Class will combine the recorded video and audio."""
+
+    verbose = VERBOSITY
+
     def __init__(self, video_path, images_path, audio_path, output_path, window_resolution):
         super().__init__()
         self.video = video_path
@@ -484,18 +509,24 @@ class Combiner(Process):
         import wave
         import contextlib
         duration = 1  # if someone does stop the recording direclty after starting, this will cause a devision by zero and crash
+        if self.verbose:
+            print("Starting the combiner ... ", end='')
         with contextlib.closing(wave.open(self.audio, 'r')) as f:
             frames = f.getnframes()
             rate = f.getframerate()
             duration = frames / float(rate)
         frame_rate = int(len(os.listdir(self.images)) / duration)
         images = os.path.join(self.images, "image%7d.jpg")
-        os.system(f"ffmpeg -framerate {frame_rate} -start_number 0 -i {images} -i {self.audio} -c:v libx264 -crf 25 -pix_fmt yuv420p {self.output}")
+        command = f"ffmpeg -framerate {frame_rate} -start_number 0 -i {images} -i {self.audio} -c:v libx264 -crf 25 -pix_fmt yuv420p {self.output}"
+        os.system(command)
+        if self.verbose:
+            print(f"Done. ({command})")
 
 
 class ScreenCastCountDown(QtWidgets.QLabel):
     gif_size = 240
     window_size = 250  # make the window a bit bigger to see the whole gif
+    verbose = VERBOSITY
 
     def __init__(self, main_window):
         super().__init__()
@@ -509,6 +540,8 @@ class ScreenCastCountDown(QtWidgets.QLabel):
     def _finished(self):
         self.hide()
         self.movie.stop()
+        if self.verbose:
+            print("Stop countdown.")
 
     def _setup_window(self):
         q_rec = self.main_window.geometry()
@@ -525,25 +558,23 @@ class ScreenCastCountDown(QtWidgets.QLabel):
         self.setMovie(self.movie)
 
     def start(self):
+        if self.verbose:
+            print("Start countdown.")
         self._setup_window()
         self.movie.start()
         self.show()
-
-    def stop(self):
-        self.movie.stop()
-        self.hide()
 
 
 # for debug purposes
 def printQ(message, QObj):
     if isinstance(QObj, QtCore.QRect):
-        print(f'QRect {message} : ({QObj.x()}, {QObj.y()}) ({QObj.width()}x{QObj.height()})')
+        print(f"QRect {message} : ({QObj.x()}, {QObj.y()}) ({QObj.width()}x{QObj.height()})")
     elif isinstance(QObj, QtCore.QSize):
-        print(f'QSize {message} : ({QObj.width()}x{QObj.height()})')
+        print(f"QSize {message} : ({QObj.width()}x{QObj.height()})")
     elif isinstance(QObj, QtCore.QPoint):
-        print(f'QPoint {message} : ({QObj.x()}, {QObj.y()})')
+        print(f"QPoint {message} : ({QObj.x()}, {QObj.y()})")
     else:
-        print('not supported')
+        print(f"message")
 
 
 if __name__ == '__main__':
