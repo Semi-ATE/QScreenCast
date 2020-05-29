@@ -26,7 +26,7 @@ Notes:
 conda install ffmpeg
 ```
 
-```shell
+```
 (Qt5.14.2) nerohmot@THOR:~/Desktop/Repo's/QScreenCast$ pip install pyqt5==5.14.2
 Collecting pyqt5==5.14.2
   Downloading PyQt5-5.14.2-5.14.2-cp35.cp36.cp37.cp38-abi3-manylinux2014_x86_64.whl (63.6 MB)
