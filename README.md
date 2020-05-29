@@ -45,5 +45,43 @@ Installing collected packages: PyQt5-sip, pyqt5
     Uninstalling PyQt5-5.12.3:
       Successfully uninstalled PyQt5-5.12.3
 Successfully installed PyQt5-sip-12.7.2 pyqt5-5.14.2
+(Qt5.14.2) nerohmot@THOR:~/Desktop/Repo's/QScreenCast$ spyder
+Traceback (most recent call last):
+  File "/home/nerohmot/miniforge3/envs/Qt5.14.2/lib/python3.8/site-packages/qtpy/QtWebEngineWidgets.py", line 22, in <module>
+    from PyQt5.QtWebEngineWidgets import QWebEnginePage
+ImportError: /home/nerohmot/miniforge3/envs/Qt5.14.2/lib/python3.8/site-packages/PyQt5/../../../libQt5Network.so.5: undefined symbol: _ZN15QIPAddressUtils8toStringER7QStringPh, version Qt_5
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nerohmot/miniforge3/envs/Qt5.14.2/bin/spyder", line 11, in <module>
+    sys.exit(main())
+  File "/home/nerohmot/miniforge3/envs/Qt5.14.2/lib/python3.8/site-packages/spyder/app/start.py", line 201, in main
+    from spyder.app import mainwindow
+  File "/home/nerohmot/miniforge3/envs/Qt5.14.2/lib/python3.8/site-packages/spyder/app/mainwindow.py", line 84, in <module>
+    from qtpy import QtWebEngineWidgets  # analysis:ignore
+  File "/home/nerohmot/miniforge3/envs/Qt5.14.2/lib/python3.8/site-packages/qtpy/QtWebEngineWidgets.py", line 26, in <module>
+    from PyQt5.QtWebKitWidgets import QWebPage as QWebEnginePage
+ModuleNotFoundError: No module named 'PyQt5.QtWebKitWidgets'
+(Qt5.14.2) nerohmot@THOR:~/Desktop/Repo's/QScreenCast$ conda list qt
+# packages in environment at /home/nerohmot/miniforge3/envs/Qt5.14.2:
+#
+# Name                    Version                   Build  Channel
+pyqt5                     5.14.2                   pypi_0    pypi
+pyqt5-sip                 12.7.2                   pypi_0    pypi
+pyqtchart                 5.12                     pypi_0    pypi
+pyqtwebengine             5.12.1                   pypi_0    pypi
+qt                        5.12.5               hd8c4c69_1    conda-forge
+qtawesome                 0.7.2              pyh9f0ad1d_0    conda-forge
+qtconsole                 4.7.4              pyh9f0ad1d_0    conda-forge
+qtpy                      1.9.0                      py_0    conda-forge
+sphinxcontrib-qthelp      1.0.3                      py_0    conda-forge
+(Qt5.14.2) nerohmot@THOR:~/Desktop/Repo's/QScreenCast$ pip search qtpy
+QtPy (1.9.0)              - Provides an abstraction layer on top of the various Qt bindings (PyQt5, PyQt4 and PySide) and additional custom
+                            QWidgets.
+  INSTALLED: 1.9.0 (latest)
+qtpyinheritance (0.0.1)   - Prototype qtpy inheritance-related tools
+qtpi-test-kernel (0.1.4)  - Simple example of qtpi test kernel python wrapper for Jupyter to enable Qtpi quantum language
+qt-reactor (0.6)          - Twisted Qt Integration for Qt4 and Qt5 using qtpy
 (Qt5.14.2) nerohmot@THOR:~/Desktop/Repo's/QScreenCast$ 
 ```
