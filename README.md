@@ -1,5 +1,5 @@
 # QScreenCast
-A complete screen-caster behind a QToolButton
+A no-nonsense [screen-caster](https://en.wikipedia.org/wiki/Screencast) behind a QToolButton
 
 # Known issues
 
