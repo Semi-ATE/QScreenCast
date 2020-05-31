@@ -73,9 +73,9 @@ class ScreenCastToolButton(QtWidgets.QToolButton):
     icon_size = 16
     fps = 14
 
-    def __init__(self, main_window):
-        super().__init__()
-        self.main_window = main_window
+    def __init__(self, parent):
+        super().__init__(parent=parent)
+        self.main_window = parent
 
         # safety check
         for video_size in self.video_sizes:
@@ -96,10 +96,12 @@ class ScreenCastToolButton(QtWidgets.QToolButton):
         else:
             raise Exception("unrecognized operating system")
 
-        self._setup()
         self._connect_event_handler()
 
-    def _setup(self):
+    def set_main_window(self, main_window):
+        self.main_window = main_window
+
+    def setup(self):
         self.setIcon(qta.icon('mdi.video', color='orange'))
         self.setIconSize(QtCore.QSize(self.icon_size, self.icon_size))
         self.state = 'idle'
@@ -195,7 +197,7 @@ class ScreenCastToolButton(QtWidgets.QToolButton):
         '''
         this method handles the settings on the screenCast (context menu)
         '''
-        mainWindow = self.parent().parent()
+        mainWindow = self.main_window
         screenAG = QtWidgets.QDesktopWidget().availableGeometry(mainWindow)
         screenG = QtWidgets.QDesktopWidget().screenGeometry(mainWindow)
 
@@ -269,7 +271,7 @@ class ScreenCastToolButton(QtWidgets.QToolButton):
         this method will get the 'GrabRegion' of the main window, and
         return it as a QRect.
         '''
-        mainWindow = self.parent().parent()
+        mainWindow = self.main_window
         retval = QtCore.QRect(mainWindow.x(),
                               mainWindow.y(),
                               mainWindow.frameGeometry().width(),
@@ -597,7 +599,9 @@ if __name__ == '__main__':
             self.setGeometry(100, 100, 1280, 720)
             self.statusbar = QtWidgets.QStatusBar(self)
 
-            self.screenCastToolButton = ScreenCastToolButton(self)
+            self.screenCastToolButton = ScreenCastToolButton(parent=self)
+            self.screenCastToolButton.set_main_window(self)
+            self.screenCastToolButton.setup()
             self.statusbar.addPermanentWidget(self.screenCastToolButton)
 
             self.setStatusBar(self.statusbar)

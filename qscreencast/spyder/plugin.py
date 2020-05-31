@@ -44,6 +44,7 @@ class ScreenCast(SpyderPluginV2):
 
     def register(self):
         container = self.get_container()
+        container.set_main_window(self.get_main())
 
         # -- Signals
         # From plugin to child
@@ -59,7 +60,7 @@ class ScreenCast(SpyderPluginV2):
             self.sig_move_main_window_requested)
 
         status_widget = container.status_widget
-        self.add_application_status_widget(status_widget)
+        self.add_application_status_widget(self.NAME, status_widget)
 
     def check_compatibility(self):
         # Check if FFMPEG is available and show a meesage
