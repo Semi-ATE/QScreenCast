@@ -44,6 +44,8 @@ PYQT_DARWIN_MINIMUM_SUPPORTED_VERSION = "5.14.2"
 
 VERBOSITY = True
 
+
+# TODO : also check if ffmpeg is installed (and what about the codec we need?)
 def is_pyqt_version_supported(actual_version, required_version):
     # all the test done are base on pyqt5
     # unfortunately this will be required for now to run the screencaster until we test it with pyside
