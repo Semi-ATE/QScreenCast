@@ -34,15 +34,15 @@ class ScreenCastContainer(PluginMainContainer):
     def __init__(self, name, plugin, parent=None, options=DEFAULT_OPTIONS):
         super().__init__(name, plugin, parent, options)
 
-        self.status = ScreenCastStatusWidget(parent=self)
+        self.status_widget = ScreenCastStatusWidget(parent=self)
 
     # --- PluginMainContainer API
     # ------------------------------------------------------------------------
-    def setup(self):
+    def setup(self, options=DEFAULT_OPTIONS):
         self.create_action(
             'screencast_action',
-            test=_("Start recording..."),
-            icon=self.get_icon(),
+            text=_("Start recording..."),
+            icon=self.create_icon("python"),
             triggered=self.start_recording,
         )
 
@@ -59,3 +59,12 @@ class ScreenCastContainer(PluginMainContainer):
 
     def stop_recording(self):
         pass
+
+    def update_size(self, size):
+        pass
+
+    def update_position(self, position):
+        pass
+
+    def set_main_window(self, main_window):
+        self.status_widget.set_main_window(main_window)

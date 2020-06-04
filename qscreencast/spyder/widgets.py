@@ -27,10 +27,12 @@ class ScreenCastStatusWidget(QWidget):
         super().__init__(parent)
 
         # Widgets
-        self.button = ScreenCastToolButton(self)
+        self.button = ScreenCastToolButton(parent=self)
 
         # # Layout
         layout = QVBoxLayout()
+        layout.setContentsMargins(0, 0, 0, 0)
+        layout.setSpacing(0)
         layout.addWidget(self.button)
         self.setLayout(layout)
 
@@ -39,3 +41,7 @@ class ScreenCastStatusWidget(QWidget):
 
     def stop_recording(self):
         pass
+
+    def set_main_window(self, main_window):
+        self.button.set_main_window(main_window)
+        self.button.setup()
