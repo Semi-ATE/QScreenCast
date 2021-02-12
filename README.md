@@ -1,7 +1,7 @@
 # QScreenCast
 A no-nonsense [screen-caster](https://en.wikipedia.org/wiki/Screencast) behind a [QToolButton](https://doc.qt.io/qt-5/qtoolbutton.html). 
 
-Any Qt application then can use the QScreenCast button to enable the creation of screen-casts for documentation as well as bug/feature reporting.
+Any Qt application then can use the QScreenCast button to enable the creation of screen-casts for documentation - as well as bug/feature reporting.
 The idea is that by installing QScreenCast (via pip/conda) the plugin for Spyder5 to make screen casts is already there. 
 
 The current implementation is a fist (granted a bit naive)
