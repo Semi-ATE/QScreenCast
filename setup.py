@@ -12,11 +12,11 @@ Python QScreenCaster.
 from setuptools import find_packages, setup
 
 # Local imports
-from qscreencast import __version__
+from QScreenCast import __version__
 
 
 setup(
-    name="qscreencast",
+    name="QScreenCast",
     version=__version__,
     packages=find_packages(),
     # See: https://setuptools.readthedocs.io/en/latest/setuptools.html
