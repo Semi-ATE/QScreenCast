@@ -1,0 +1,6 @@
+  include *.txt
+  recursive-include documentation *.pptx
+  recursive-include examples *.py
+  recursive-include qscreencast *.gif
+  recursive-include requirements *.txt
+  recursive-include tests *.py
