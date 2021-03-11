@@ -30,8 +30,8 @@ import tempfile
 from multiprocessing import Process
 
 from packaging import version
-from qtpy import PYQT5, QT_VERSION
-from qtpy import QtCore, QtGui, QtWidgets, QtMultimedia
+from pyqt import PYQT5, QT_VERSION
+from pyqt import QtCore, QtGui, QtWidgets, QtMultimedia
 
 import qtawesome as qta
 
