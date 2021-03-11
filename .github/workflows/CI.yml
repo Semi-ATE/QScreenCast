@@ -26,13 +26,17 @@ jobs:
           mamba install --file requirements/test.txt -c conda-forge -y -q
 
       - name: Run tests
+        shell: bash -l {0}
         run: pytest tests/ --cov=QScreenCast
 
       - name: Create package
+        shell: bash -l {0}
         run: python setup.py sdist 
 
       - name: Check package
+        shell: bash -l {0}
         run: twine check dist/*
 
-      - name: Check manifest 
+      - name: Check manifest
+        shell: bash -l {0}
         run: check-manifest
