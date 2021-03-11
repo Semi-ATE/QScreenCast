@@ -43,6 +43,7 @@ jobs:
         run: check-manifest
 
       - name: Upload to PyPI
+        shell: bash -l {0}
         env:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
