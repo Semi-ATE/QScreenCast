@@ -26,6 +26,10 @@ jobs:
         run: |
           mamba install -n test --file requirements/run.txt -c conda-forge -y -q
           mamba install -n test --file requirements/test.txt -c conda-forge -y -q
+
+      - name: Tag to mamba-version
+        run: echo "__version__='${GITHUB_REF#refs/*/}'" >> QScreenCast/__init__.py
+
       - name: Run tests
         shell: bash -l {0}
         run: pytest tests/ --cov=QScreenCast
