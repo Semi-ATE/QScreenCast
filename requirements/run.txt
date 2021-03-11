@@ -1,2 +1,3 @@
 ffmpeg
+qtpy
 pyqt>=5.12
