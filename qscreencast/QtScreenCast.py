@@ -23,7 +23,6 @@ hints:
 
 """
 import os
-import sys
 import platform
 import shutil
 import tempfile
@@ -35,7 +34,7 @@ from qtpy import PYQT5, QT_VERSION
 from qtpy import QtCore, QtGui, QtWidgets, QtMultimedia
 
 import qtawesome as qta
-import qdarkstyle
+
 
 PYQT_WINDOWS_MINIMUM_SUPPORTED_VERSION = "5.12.3"
 PYQT_LINUX_MINIMUM_SUPPORTED_VERSION = "5.14.2"
@@ -579,30 +578,3 @@ def printQ(message, QObj):
         print(f"QPoint {message} : ({QObj.x()}, {QObj.y()})")
     else:
         print(f"message")
-
-
-if __name__ == '__main__':
-
-    class MainWindow(QtWidgets.QMainWindow):
-
-        def __init__(self, app):
-            super().__init__()
-
-            self.app = app  # work-around for the 'spydercustomize.SpyderQApplication' stuff ... not sure what is going on there ...
-
-            self.setWindowTitle('Dummy Main Window')
-            self.setGeometry(100, 100, 1280, 720)
-            self.statusbar = QtWidgets.QStatusBar(self)
-
-            self.screenCastToolButton = ScreenCastToolButton(parent=self)
-            self.screenCastToolButton.set_main_window(self)
-            self.screenCastToolButton.setup()
-            self.statusbar.addPermanentWidget(self.screenCastToolButton)
-
-            self.setStatusBar(self.statusbar)
-            self.show()
-
-    app = QtWidgets.QApplication(sys.argv)
-    app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
-    mainWindow = MainWindow(app)
-    app.exec_()
