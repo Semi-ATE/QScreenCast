@@ -10,15 +10,20 @@ jobs:
       - name: Checkout project
         uses: actions/checkout@v2
 
-      - name: Setup python
-        uses: actions/setup-python@v2
+      - name: Setup miniconda
+        uses: conda-incubator/setup-miniconda@v2
         with:
-          python-version: '3.8'
+          miniconda-version: "latest" 
+          python-version: "3.8"
+          channel-priority: "strict"
+          channels: "conda-forge"  
+          mamba-version: "*"
+          show-channel-urls: true 
 
       - name: Setup project dependencies
         run: |
-          pip install -r requirements/run.txt
-          pip install -r requirements/test.txt
+          conda install --file requirements/run.txt -c conda-forge -y -q
+          conda install --file requirements/test.txt -c conda-forge -y -q
 
       - name: Run tests
         run: pytest tests/ --cov=QScreenCast
