@@ -11,6 +11,7 @@ Python QtScreenCaster Spyder Widgets.
 # Third party imports
 from qtpy.QtWidgets import QVBoxLayout, QWidget
 from spyder.api.translations import get_translation
+from spyder.api.widgets.status import StatusBarWidget
 
 # Local imports
 from qscreencast.QtScreenCast import ScreenCastToolButton
@@ -21,27 +22,16 @@ _ = get_translation('qscreencast.spyder')
 
 
 # TODO: Change to use the base status widget not yet available
-class ScreenCastStatusWidget(QWidget):
+class ScreenCastStatusWidget(StatusBarWidget):
+    ID = 'screen_caster'
+    CUSTOM_WIDGET_CLASS = ScreenCastToolButton
 
-    def __init__(self, parent):
-        super().__init__(parent)
-
-        # Widgets
-        self.button = ScreenCastToolButton(parent=self)
-
-        # # Layout
-        layout = QVBoxLayout()
-        layout.setContentsMargins(0, 0, 0, 0)
-        layout.setSpacing(0)
-        layout.addWidget(self.button)
-        self.setLayout(layout)
+    def __init__(self, parent, main_window):
+        super().__init__(parent, show_icon=False, show_label=False)
+        self.custom_widget.setup(main_window)
 
     def start_recording(self):
         pass
 
     def stop_recording(self):
         pass
-
-    def set_main_window(self, main_window):
-        self.button.set_main_window(main_window)
-        self.button.setup()

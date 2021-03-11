@@ -34,7 +34,8 @@ class ScreenCastContainer(PluginMainContainer):
     def __init__(self, name, plugin, parent=None, options=DEFAULT_OPTIONS):
         super().__init__(name, plugin, parent, options)
 
-        self.status_widget = ScreenCastStatusWidget(parent=self)
+    def init_screen_cast_widget(self, main):
+        self.status_widget = ScreenCastStatusWidget(parent=self, main_window=main)
 
     # --- PluginMainContainer API
     # ------------------------------------------------------------------------
@@ -65,6 +66,3 @@ class ScreenCastContainer(PluginMainContainer):
 
     def update_position(self, position):
         pass
-
-    def set_main_window(self, main_window):
-        self.status_widget.set_main_window(main_window)

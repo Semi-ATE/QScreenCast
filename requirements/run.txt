@@ -1,0 +1,2 @@
+ffmpeg
+pyqt>=5.12
