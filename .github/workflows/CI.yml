@@ -1,0 +1,33 @@
+name: CI
+
+on: [push]
+
+jobs:
+  test-linux:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout project
+        uses: actions/checkout@v2
+
+      - name: Setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+
+      - name: Setup project dependencies
+        run: |
+          pip install -r requirements/run.txt
+          pip install -r requirements/test.txt
+
+      - name: Run tests
+        run: pytest tests/ --cov=QScreenCast
+
+      - name: Create package
+        run: python setup.py sdist 
+
+      - name: Check package
+        run: twine check dist/*
+
+      - name: Check manifest 
+        run: check-manifest
