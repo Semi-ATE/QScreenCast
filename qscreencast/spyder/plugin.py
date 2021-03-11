@@ -11,7 +11,7 @@ Python QtScreenCaster Spyder Widgets.
 # Third party imports
 from qtpy.QtCore import QPoint, QSize, Signal
 from qtpy.QtGui import QIcon
-from spyder.api.plugins import SpyderPluginV2
+from spyder.api.plugins import SpyderPluginV2, Plugins
 from spyder.api.translations import get_translation
 
 # Local imports
@@ -26,6 +26,7 @@ class ScreenCast(SpyderPluginV2):
     NAME = 'screencast'
     CONF_SECTION = NAME
     CONTAINER_CLASS = ScreenCastContainer
+    REQUIRES = [Plugins.StatusBar]
 
     # --- Signals
     sig_main_window_resized = Signal(QSize, QSize)
@@ -43,8 +44,10 @@ class ScreenCast(SpyderPluginV2):
         return QIcon()
 
     def register(self):
+        status_bar = self.get_plugin(Plugins.StatusBar)
+
         container = self.get_container()
-        container.set_main_window(self.get_main())
+        container.init_screen_cast_widget(self.get_main())
 
         # -- Signals
         # From plugin to child
@@ -59,8 +62,7 @@ class ScreenCast(SpyderPluginV2):
         container.sig_move_main_window_requested.connect(
             self.sig_move_main_window_requested)
 
-        status_widget = container.status_widget
-        self.add_application_status_widget(self.NAME, status_widget)
+        status_bar.add_status_widget(container.status_widget)
 
     def check_compatibility(self):
         # Check if FFMPEG is available and show a meesage

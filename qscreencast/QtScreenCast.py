@@ -73,7 +73,7 @@ class ScreenCastToolButton(QtWidgets.QToolButton):
     icon_size = 16
     fps = 14
 
-    def __init__(self, parent):
+    def __init__(self, parent=None):
         super().__init__(parent=parent)
         self.main_window = parent
 
@@ -98,10 +98,8 @@ class ScreenCastToolButton(QtWidgets.QToolButton):
 
         self._connect_event_handler()
 
-    def set_main_window(self, main_window):
+    def setup(self, main_window):
         self.main_window = main_window
-
-    def setup(self):
         self.setIcon(qta.icon('mdi.video', color='orange'))
         self.setIconSize(QtCore.QSize(self.icon_size, self.icon_size))
         self.state = 'idle'
@@ -166,10 +164,10 @@ class ScreenCastToolButton(QtWidgets.QToolButton):
 
     def _generate_audio_input_menu(self):
         if not self.is_microphone_available:
-            audio_input_menu = QtWidgets.QMenu("no available microphones")
+            audio_input_menu = QtWidgets.QMenu("no available microphones", parent=self)
             audio_input_menu.setIcon(qta.icon('mdi.microphone-off', color='orange'))
         else:
-            audio_input_menu = QtWidgets.QMenu("available microphones")
+            audio_input_menu = QtWidgets.QMenu("available microphones", parent=self)
             audio_input_menu.setIcon(qta.icon('mdi.microphone', color='orange'))
             for source in self._get_available_audio_inputs():
                 action = audio_input_menu.addAction(source)
@@ -201,7 +199,7 @@ class ScreenCastToolButton(QtWidgets.QToolButton):
         screenAG = QtWidgets.QDesktopWidget().availableGeometry(mainWindow)
         screenG = QtWidgets.QDesktopWidget().screenGeometry(mainWindow)
 
-        menu = QtWidgets.QMenu()
+        menu = QtWidgets.QMenu(parent=self)
 
         audi_menu = self._generate_audio_input_menu()
         menu.addMenu(audi_menu)
@@ -260,22 +258,20 @@ class ScreenCastToolButton(QtWidgets.QToolButton):
         '''
         newRect = self.calculate_grab_region(psize)
         if newRect.height() != 0:  # new size needs to make sense ;-)
-            mainWindow = self.parent().parent()
-            Δx = mainWindow.frameGeometry().width() - mainWindow.geometry().width()
-            Δy = mainWindow.frameGeometry().height() - mainWindow.geometry().height()
-            mainWindow.move(newRect.x(), newRect.y())
-            mainWindow.resize(newRect.width() - Δx, newRect.height() - Δy)
+            Δx = self.main_window.frameGeometry().width() - self.main_window.geometry().width()
+            Δy = self.main_window.frameGeometry().height() - self.main_window.geometry().height()
+            self.main_window.move(newRect.x(), newRect.y())
+            self.main_window.resize(newRect.width() - Δx, newRect.height() - Δy)
 
     def get_grab_region(self):
         '''
         this method will get the 'GrabRegion' of the main window, and
         return it as a QRect.
         '''
-        mainWindow = self.main_window
-        retval = QtCore.QRect(mainWindow.x(),
-                              mainWindow.y(),
-                              mainWindow.frameGeometry().width(),
-                              mainWindow.frameGeometry().height())
+        retval = QtCore.QRect(self.main_window.x(),
+                              self.main_window.y(),
+                              self.main_window.frameGeometry().width(),
+                              self.main_window.frameGeometry().height())
         return retval
 
     def calculate_grab_region(self, psize=-1):
@@ -410,7 +406,7 @@ class ScreenCastRecorder:
         self.countdown = ScreenCastCountDown(self.main_window)
 
     def _setup(self):
-        # delay timer used as a countdown and will fire only once after 3 seconds and starts the recording
+        # delayed timer used as a countdown and will fire only once after 3 seconds and starts the recording
         self.delay_timer = QtCore.QTimer()
         self.delay_timer.setSingleShot(True)
         self.delay_timer.timeout.connect(self._delay_timer_time_out)
@@ -468,7 +464,6 @@ class ScreenCastRecorder:
         self.video_recorder.counter = 0
         q_rec = self.main_window.geometry()
         combine_process = Combiner(self.video, self.images, self.audio, self.output, (q_rec.height(), q_rec.width()))
-        combine_process.start()  # WTF!
         combine_process.run()
         self.recording_started = False
 
