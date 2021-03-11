@@ -22,7 +22,7 @@ setup(
     # See: https://setuptools.readthedocs.io/en/latest/setuptools.html
     entry_points={
         "spyder.plugins": [
-            "screencast = qscreencast.spyder.plugin:ScreenCast"
+            "screencast = QScreenCast.spyder.plugin:ScreenCast"
         ],
     }
 )
