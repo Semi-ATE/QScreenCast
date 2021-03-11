@@ -16,13 +16,13 @@ from qscreencast import __version__
 
 
 setup(
-    name="qscreencast",
+    name="QScreenCast",
     version=__version__,
     packages=find_packages(),
     # See: https://setuptools.readthedocs.io/en/latest/setuptools.html
     entry_points={
         "spyder.plugins": [
-            "screencast = qscreencast.spyder.plugin:ScreenCast"
+            "screencast = QScreenCast.spyder.plugin:ScreenCast"
         ],
     }
 )
