@@ -33,7 +33,7 @@ setup(
         "spyder.plugins": [
             "screencast = QScreenCast.spyder.plugin:ScreenCast"
         ],
-    }
+    },
     # See: https://pypi.org/classifiers/
     classifiers=[  
         'License :: OSI Approved :: MIT License',
