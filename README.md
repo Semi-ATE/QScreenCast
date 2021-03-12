@@ -29,7 +29,7 @@ QScreenCast also provides this functionality for Spyder >= 5 by means of a plugi
 (myenv) me@mybox:~$ conda install -c conda-forge QScreenCast 
 ```
 
-**Note:** that QScreenCast needs pyqt >= 5.12 conda-forge has this (eventhough semi-broken) hence the `-c conda-forge`. The anaconda channel still only has the 5.9.2, but that version doesn't have the Qt Multimedia backend, and QScreenCast needs that, so until pyqt 5.15.3 is out pure anaconda users are left in the cold 😭
+**Note:** that QScreenCast needs pyqt >= 5.12, conda-forge has this (eventhough semi-broken) hence the `-c conda-forge`. The anaconda channel still only has the 5.9.2, but that version doesn't have the Qt Multimedia backend, and QScreenCast needs that, so until pyqt 5.15.3 is out, pure anaconda users are left in the cold 😭
 
 ### pip
 
