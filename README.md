@@ -17,52 +17,35 @@ A no-nonsense [screen-caster](https://en.wikipedia.org/wiki/Screencast) behind a
 [![GitHub issues](https://img.shields.io/github/issues/Semi-ATE/QScreenCast)](https://github.com/Semi-ATE/QScreenCast/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/Semi-ATE/QScreenCast)](https://github.com/Semi-ATE/QScreenCast/pulls)
 
-Any Qt application then can use the QScreenCast button to enable the creation of screen-casts for documentation/demo/tutorial as well as bug/feature reporting.
+An application that uses pyqt >= 5.12 can use this QScreenCast library to enable the creation of screen-casts for documentation/demo/tutorial as well as bug/feature reporting of itself!
 
-QScreenCast also provides this functionality for Spyder >= 5 by means of a plugin declaration.
+QScreenCast also provides this functionality for Spyder >= 5 by means of a plugin declaration. 😍
 
 ## Installation
 
-## Example usage
+### conda/mamba (preferred)
 
-```python
-
-import qtawesome as qta
-
-from QScreenCast import QScreenCast
-from qtpy import QtCore, QtGui, QtWidgets
-
-class MainWindow(QtWidgets.QMainWindow):
-
-  def __init__(self, app):
-    super().__init__()
-
-    self.app = app
-
-    self.setWindowTitle('Dummy Main Window')
-    self.setGeometry(100, 100, 1280, 720)
-    self.statusbar = QtWidgets.QStatusBar(self)
-
-    self.screenCastToolButton = ScreenCastToolButton(parent=self)
-    self.screenCastToolButton.set_main_window(self)
-    self.screenCastToolButton.setup()
-    self.statusbar.addPermanentWidget(self.screenCastToolButton)
-
-    self.setStatusBar(self.statusbar)
-    self.show()
-
-app = QtWidgets.QApplication(sys.argv)
-app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
-mainWindow = MainWindow(app)
-app.exec_()
+```bash
+(myenv) me@mybox:~$ conda install -c conda-forge QScreenCast 
 ```
 
+**Note:** that QScreenCast needs pyqt >= 5.12 conda-forge has this (eventhough semi-broken) hence the `-c conda-forge`. The anaconda channel still only has the 5.9.2, but that version doesn't have the Qt Multimedia backend, and QScreenCast needs that, so until pyqt 5.15.3 is out pure anaconda users are left in the cold 😭
 
-[Example](https://github.com/Semi-ATE/QScreenCast/blob/75f5ea10057a9d4827fe1b191429009f56de438f/qscreencast/QtScreenCast.py#L589)
+### pip
+
+```bash
+me@mybox:~$ pip install QScreenCast
+```
+
+**Note:** The pip installation is not tested so much, we test the conda installation, but as the project is released to PyPi and a conda-forge feedstock 'monitors' the Python Package Index, it should work (if pip can resolve the dependencies that is)
+
+## Example
+
+The repo holds an `example` directory where it is demonstrated how to use the QScreenCast button in your own application.
 
 
 ## Work in progress
 
-The current implementation is a fist (granted a bit naive) attempt, but we are gearing up to make a second iteration, this time by using [GStreamer](https://gstreamer.freedesktop.org/) under the hood!
+The current implementation is a fist (granted a bit naive) attempt, but we are gearing up to make a second iteration, this time by using [GStreamer](https://gstreamer.freedesktop.org/) under the hood! 😎
 
-There is of course the topic [pyqt 5.15.3](https://github.com/conda-forge/qt-feedstock) via conda-forge, as well as Windows/Linux/MacOS version differences ...
+There is of course the topic [pyqt 5.15.3](https://github.com/conda-forge/qt-feedstock) via conda-forge, as well as Windows/Linux/MacOS version differences ... 🙈 🙉 🙊
