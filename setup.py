@@ -3,6 +3,9 @@
 # Copyright © Semi-ATE
 # Distributed under the terms of the MIT License
 
+
+import os
+
 from setuptools import find_packages, setup
 from QScreenCast import __version__
 
