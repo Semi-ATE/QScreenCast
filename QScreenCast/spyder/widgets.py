@@ -14,7 +14,7 @@ from spyder.api.translations import get_translation
 from spyder.api.widgets.status import StatusBarWidget
 
 # Local imports
-from qscreencast.QtScreenCast import ScreenCastToolButton
+from QScreenCast import ScreenCastToolButton
 
 
 # Localization

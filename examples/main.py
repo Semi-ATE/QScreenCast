@@ -2,7 +2,7 @@ import sys
 import qdarkstyle
 
 from qtpy import QtWidgets
-from qscreencast.QtScreenCast import ScreenCastToolButton
+from QScreenCast import ScreenCastToolButton
 
 class MainWindow(QtWidgets.QMainWindow):
 
