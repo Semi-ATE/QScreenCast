@@ -11,7 +11,7 @@ from QScreenCast import __version__
 
 here = os.path.dirname(os.path.abspath(__file__))
 
-with open(os.path.join(here, "README.md"), "r") as f:
+with open(os.path.join(here, "README.md"), "r", encoding="utf-8") as f:
     Project_description = f.read()
 
 with open(os.path.join(here, "requirements", "run.txt"), "r") as requirements:
