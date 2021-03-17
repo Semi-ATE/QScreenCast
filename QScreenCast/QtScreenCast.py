@@ -567,6 +567,9 @@ class ScreenCastCountDown(QtWidgets.QLabel):
         self.movie.start()
         self.show()
 
+    def stop(self):
+        self._finished()
+
 
 # for debug purposes
 def printQ(message, QObj):

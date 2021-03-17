@@ -7,7 +7,7 @@
 import os
 
 from setuptools import find_packages, setup
-from QScreenCast import __version__
+from qscreencast import __version__
 
 here = os.path.dirname(os.path.abspath(__file__))
 
