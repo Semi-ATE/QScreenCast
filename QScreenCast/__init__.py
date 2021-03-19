@@ -7,6 +7,6 @@
 """
 Python QtScreenCaster.
 """
-from .QtScreenCast import ScreenCastToolButton
+from .QtScreenCast import *
 
 __version__ = "0.0.0"
