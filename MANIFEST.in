@@ -1,7 +1,5 @@
-  include *.txt
-  include QScreenCast/countdown.gif
-  recursive-include documentation *.pptx
-  recursive-include examples *.py
-  recursive-include qscreencast *.gif
-  recursive-include requirements *.txt
-  recursive-include tests *.py
+recursive-include QScreenCast/ *.*
+recursive-exclude documentation/ *.*
+recursive-exclude examples/ *.*
+recursive-exclude requirements/ *.*
+recursive-exclude tests/ *.*
