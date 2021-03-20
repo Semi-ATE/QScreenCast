@@ -1,4 +1,4 @@
-include LICENSE
+include LICENSE.txt
 recursive-include QScreenCast *.py
 recursive-exclude documentation *.*
 recursive-exclude examples *.*
