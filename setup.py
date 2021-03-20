@@ -14,12 +14,14 @@ here = os.path.dirname(os.path.abspath(__file__))
 with open(os.path.join(here, "README.md"), "r", encoding="utf-8") as f:
     Project_description = f.read()
 
-with open(os.path.join(here, "requirements", "run.txt"), "r") as requirements:
-    run_requirements = requirements.readlines()
-install_requirements = []
-for requirement in run_requirements:
-    if requirement.replace("\n", "") != "":
-        install_requirements.append(requirement.replace("\n", ""))
+install_requires = [
+    'ffmpeg',
+    'qtpy',
+    'pyqt5>=5.12.3;platform_system=="Windows"',
+    'pyqt5>=5.14.2;platform_system=="Linux"',
+    'pyqt5>=5.14.0;platform_system=="Darwin"',
+    'qtawesome',
+]
 
 setup(
     name="QScreenCast",
@@ -71,6 +73,6 @@ setup(
         'qt',
     ],
     platforms=["Windows", "Linux", "MacOS"],
-    install_requires=install_requirements,
+    install_requires=install_requires,
     python_requires='>=3.7',
 )
