@@ -18,7 +18,7 @@ from QScreenCast import ScreenCastToolButton
 
 
 # Localization
-_ = get_translation('qscreencast.spyder')
+_ = get_translation('QScreenCast.spyder')
 
 
 # TODO: Change to use the base status widget not yet available
