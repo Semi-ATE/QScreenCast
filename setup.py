@@ -33,6 +33,8 @@ setup(
     maintainer_email='info@Semi-ATE.com',
     url='https://github.com/Semi-ATE/QScreenCast',
     packages=find_packages(),
+    include_package_data=True,
+    package_data={'QScreenCast': ['countdown.gif']},
     # See: https://setuptools.readthedocs.io/en/latest/setuptools.html
     entry_points={
         "spyder.plugins": [
