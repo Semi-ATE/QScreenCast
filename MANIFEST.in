@@ -1,5 +1,6 @@
-recursive-include QScreenCast/ *.*
-recursive-exclude documentation/ *.*
-recursive-exclude examples/ *.*
-recursive-exclude requirements/ *.*
-recursive-exclude tests/ *.*
+include LICENSE
+recursive-include QScreenCast *.py
+recursive-exclude documentation *.*
+recursive-exclude examples *.*
+recursive-exclude requirements *.*
+recursive-exclude tests *.*
