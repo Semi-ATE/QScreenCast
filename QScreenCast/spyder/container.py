@@ -19,7 +19,7 @@ from QScreenCast.spyder.widgets import ScreenCastStatusWidget
 
 
 # Localization
-_ = get_translation('qscreencast.spyder')
+_ = get_translation('QScreenCast.spyder')
 
 
 class ScreenCastContainer(PluginMainContainer):
