@@ -14,8 +14,8 @@ from spyder.api.translations import get_translation
 from spyder.api.widgets import PluginMainContainer
 
 # Local imports
-from qscreencast.spyder.api import ScreenResolutions
-from qscreencast.spyder.widgets import ScreenCastStatusWidget
+from QScreenCast.spyder.api import ScreenResolutions
+from QScreenCast.spyder.widgets import ScreenCastStatusWidget
 
 
 # Localization
