@@ -1,5 +1,6 @@
 include LICENSE.txt
 recursive-include QScreenCast *.py
+recursive-exclude QScreenCast/__pycache__ *.*
 recursive-exclude documentation *.*
 recursive-exclude examples *.*
 recursive-exclude requirements *.*
