@@ -22,8 +22,8 @@ jobs:
 
       - name: Setup project dependencies
         run: |
-          mamba install -n test --file requirements/run.txt -c conda-forge -y -q
-          mamba install -n test --file requirements/test.txt -c conda-forge -y -q
+          mamba install -n test --file requirements/conda_run.txt -c conda-forge -y -q
+          mamba install -n test --file requirements/conda_test.txt -c conda-forge -y -q
 
       - name: Run tests
         shell: bash -l {0}
