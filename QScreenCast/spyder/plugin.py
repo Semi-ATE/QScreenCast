@@ -15,7 +15,7 @@ from spyder.api.plugins import SpyderPluginV2, Plugins
 from spyder.api.translations import get_translation
 
 # Local imports
-from qscreencast.spyder.container import ScreenCastContainer
+from QScreenCast.spyder.container import ScreenCastContainer
 
 
 # Localization
