@@ -12,6 +12,6 @@ tree
 
 ffmpeg
 qtpy
-pyqt5>=5.12
+pyqt>=5.12
 qtawesome
 packaging
