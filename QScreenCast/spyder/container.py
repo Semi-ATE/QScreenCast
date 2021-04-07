@@ -19,7 +19,7 @@ from QScreenCast.spyder.widgets import ScreenCastStatusWidget
 
 
 # Localization
-_ = get_translation('qscreencast.spyder')
+_ = get_translation('QScreenCast.spyder')
 
 
 class ScreenCastContainer(PluginMainContainer):
@@ -31,8 +31,8 @@ class ScreenCastContainer(PluginMainContainer):
     sig_resize_main_window_requested = Signal(QSize)
     sig_move_main_window_requested = Signal(QPoint)
 
-    def __init__(self, name, plugin, parent=None, options=DEFAULT_OPTIONS):
-        super().__init__(name, plugin, parent, options)
+    def __init__(self, name, plugin, parent=None):
+        super().__init__(name, plugin, parent)
 
     def init_screen_cast_widget(self, main):
         self.status_widget = ScreenCastStatusWidget(parent=self, main_window=main)
