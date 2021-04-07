@@ -3,10 +3,15 @@ pytest-qt
 pytest==6.1.1
 pytest-cov
 pytest-mock
-pytest-asyncio==0.14.0
 coverage
 check-manifest
 pre-commit
 tqdm
 twine
 tree
+
+ffmpeg
+qtpy
+pyqt>=5.12
+qtawesome
+packaging

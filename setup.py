@@ -21,6 +21,7 @@ install_requires = [
     'pyqt5>=5.14.2;platform_system=="Linux"',
     'pyqt5>=5.14.0;platform_system=="Darwin"',
     'qtawesome',
+    'packaging',
 ]
 
 setup(
