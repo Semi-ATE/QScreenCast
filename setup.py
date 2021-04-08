@@ -19,7 +19,8 @@ install_requires = [
     'qtpy>=1.5.0',
     'pyqt5<5.13',
     'qtawesome>=1.0.2',
-    'packaging',
+#    'packaging',
+    'qdarkstyle',
 ]
 
 setup(
@@ -73,7 +74,8 @@ setup(
         'screencast',
         'qt',
     ],
-    platforms=["Windows", "Linux", "MacOS"],
+#    platforms=["Windows", "Linux", "MacOS"],
+    platforms=["Windows"],
     install_requires=install_requires,
     python_requires='>=3.7',
 )
