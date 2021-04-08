@@ -7,7 +7,6 @@ A no-nonsense [screen-caster](https://en.wikipedia.org/wiki/Screencast) behind a
 ![Supported Python versions](https://img.shields.io/badge/python-%3E%3D3.7-black)
 
 [![CI](https://github.com/Semi-ATE/QScreenCast/workflows/CI/badge.svg?branch=master)](https://github.com/Semi-ATE/QScreenCast/actions?query=workflow%3ACI)
-[![codecov](https://codecov.io/gh/Semi-ATE/QScreenCast/branch/main/graph/badge.svg?token=BAP0H9OMED)](https://codecov.io/gh/Semi-ATE/QScreenCast)
 [![CD](https://github.com/Semi-ATE/QScreenCast/workflows/CD/badge.svg)](https://github.com/Semi-ATE/QScreenCast/actions?query=workflow%3ACD)
 
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/Semi-ATE/QScreenCast?color=blue&label=GitHub&sort=semver)](https://github.com/Semi-ATE/QScreenCast/releases/latest)
