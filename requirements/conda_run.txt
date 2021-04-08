@@ -3,3 +3,4 @@ pyqt<5.13
 qtawesome>=1.0.2
 ffmpeg
 packaging
+qdarkstyle

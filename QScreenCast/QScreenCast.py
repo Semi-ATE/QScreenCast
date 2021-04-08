@@ -29,7 +29,7 @@ import tempfile
 
 from multiprocessing import Process
 
-from packaging import version
+#from packaging import version
 from qtpy import PYQT5, QT_VERSION
 from qtpy import QtCore, QtGui, QtWidgets, QtMultimedia
 
@@ -45,6 +45,7 @@ VERBOSITY = True
 
 # TODO : also check if ffmpeg is installed (and what about the codec we need?)
 def is_pyqt_version_supported(actual_version, required_version):
+    return True
     # all the test done are base on pyqt5
     # unfortunately this will be required for now to run the screencaster until we test it with pyside
     if not PYQT5:

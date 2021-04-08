@@ -19,7 +19,8 @@ install_requires = [
     'qtpy>=1.5.0',
     'pyqt5<5.13',
     'qtawesome>=1.0.2',
-    'packaging',
+#    'packaging',
+    'qdarkstyle',
 ]
 
 setup(
