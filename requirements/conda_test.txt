@@ -9,9 +9,3 @@ pre-commit
 tqdm
 twine
 tree
-
-ffmpeg
-qtpy
-pyqt>=5.12
-qtawesome
-packaging

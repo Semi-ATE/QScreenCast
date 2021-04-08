@@ -16,11 +16,9 @@ with open(os.path.join(here, "README.md"), "r", encoding="utf-8") as f:
 
 install_requires = [
     'ffmpeg',
-    'qtpy',
-    'pyqt5>=5.12.3;platform_system=="Windows"',
-    'pyqt5>=5.14.2;platform_system=="Linux"',
-    'pyqt5>=5.14.0;platform_system=="Darwin"',
-    'qtawesome',
+    'qtpy>=1.5.0',
+    'pyqt5<5.13',
+    'qtawesome>=1.0.2',
     'packaging',
 ]
 
