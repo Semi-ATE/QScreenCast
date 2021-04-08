@@ -20,6 +20,20 @@ A no-nonsense [screen-caster](https://en.wikipedia.org/wiki/Screencast) behind a
 
 A library that exposes a no-nonsense screen caster behind a QToolButton to be incorporated in any application.
 
+## Work in progress
+
+**Force majeure :** Currently QScreenCast only works on windows! 😭
+
+QScreenCast needs the [Qt Multimedia](https://doc.qt.io/qt-5/multimediaoverview.html) module. 
+- On **conda-forge** we have a [pyqt==5.12.3](https://anaconda.org/conda-forge/pyqt), which is semi-broken because for windows the Multimedia module is present, but for Linux & macOS they it is not ... 🙈 🙉 🙊
+- On **anaconda** the situation is even worse, as there the latest [pyqt==5.9.2](https://anaconda.org/anaconda/pyqt) and the Multimedia module is omitted all toghether. 😩
+- On **PyPi** the situation is different, there one can use [PyQt**5**==5.15.4](https://pypi.org/project/PyQt5/) and there (I presume) the Multimedia module is available ... however that opens [yet another can of worms](https://www.youtube.com/watch?v=Ul79ihg41Rs) ...
+
+That being said, [conda-forge/pyqt](https://github.com/conda-forge/pyqt-feedstock/issues) is working on a 5.15 with all the goodies for all platforms (including [M1](https://www.apple.com/mac/m1/) 😍) but the ETA for that is mid 2021.
+
+The current implementation is a fist (granted a bit naive) attempt, but we are gearing up to make a second iteration, this time by using [GStreamer](https://gstreamer.freedesktop.org/) under the hood! 😎
+
+
 ## Installation
 
 ### conda/mamba (preferred)
@@ -28,15 +42,11 @@ A library that exposes a no-nonsense screen caster behind a QToolButton to be in
 (myenv) me@mybox:~$ conda install -c conda-forge QScreenCast 
 ```
 
-**Note:** that QScreenCast needs pyqt >= 5.12, conda-forge has this (eventhough semi-broken) hence the `-c conda-forge` as the anaconda channel still only has the 5.9.2, but that version doesn't have the Qt Multimedia backend, and QScreenCast needs that, so until pyqt 5.15.3 is out (and adopted by anaconda), pure anaconda users are left in the cold 😭
-
 ### pip
 
 ```bash
 me@mybox:~$ pip install QScreenCast
 ```
-
-**Note:** The pip installation is not tested so much, we test the conda installation, but as the project is released to PyPi and a conda-forge feedstock 'monitors' the Python Package Index, it should work (if pip can resolve the dependencies that is) Also worth noting is that the PyPi version depends on PyQt5 whereas the conda version depends on pyqt.
 ## Example
 
 The repo holds an `example` directory where it is demonstrated how to use the QScreenCast button in your own application.
@@ -81,8 +91,3 @@ Long story short, you shouldn't have to mess with options, just start/stop your 
   - frame rate = 15 fps
   - 4:2:0 Chroma subsampling
 
-## Work in progress
-
-The current implementation is a fist (granted a bit naive) attempt, but we are gearing up to make a second iteration, this time by using [GStreamer](https://gstreamer.freedesktop.org/) under the hood! 😎
-
-There is of course the topic [pyqt 5.15.3](https://github.com/conda-forge/qt-feedstock) via conda-forge, as well as Windows/Linux/MacOS version differences ... 🙈 🙉 🙊
