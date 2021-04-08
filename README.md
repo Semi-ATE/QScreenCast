@@ -43,6 +43,8 @@ The current implementation is a fist (granted a bit naive) attempt, but we are g
 
 ### pip
 
+prior to installing, you need to install [ffmpeg on your system](https://www.ffmpeg.org/download.html#build-windows)
+
 ```bash
 me@mybox:~$ pip install QScreenCast
 ```
