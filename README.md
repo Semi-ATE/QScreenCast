@@ -4,7 +4,7 @@ A no-nonsense [screen-caster](https://en.wikipedia.org/wiki/Screencast) behind a
 
 [![GitHub](https://img.shields.io/github/license/Semi-ATE/QScreenCast?color=black)](https://github.com/Semi-ATE/QScreenCast/blob/main/LICENSE)
 [![Conda](https://img.shields.io/conda/pn/conda-forge/QScreenCast?color=black)](https://anaconda.org/conda-forge/QScreenCast)
-![Supported Python versions](https://img.shields.io/badge/python-%3E%3D3.7-black)
+![Supported Python versions](https://img.shields.io/badge/python-%3E%3D3.6-black)
 
 [![CI](https://github.com/Semi-ATE/QScreenCast/workflows/CI/badge.svg?branch=master)](https://github.com/Semi-ATE/QScreenCast/actions?query=workflow%3ACI)
 [![CD](https://github.com/Semi-ATE/QScreenCast/workflows/CD/badge.svg)](https://github.com/Semi-ATE/QScreenCast/actions?query=workflow%3ACD)
@@ -16,21 +16,22 @@ A no-nonsense [screen-caster](https://en.wikipedia.org/wiki/Screencast) behind a
 
 [![GitHub issues](https://img.shields.io/github/issues/Semi-ATE/QScreenCast)](https://github.com/Semi-ATE/QScreenCast/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/Semi-ATE/QScreenCast)](https://github.com/Semi-ATE/QScreenCast/pulls)
+![Conda downloads](https://img.shields.io/conda/dn/conda-forge/QScreenCast?color=brightgreen)
 
-A library that exposes a no-nonsense screen caster behind a QToolButton to be incorporated in any application.
+A library that exposes a no-nonsense screen caster behind a QToolButton to be incorporated in any Python/Qt application.
 
 ## Work in progress
 
-**Force majeure :** Currently QScreenCast only works on windows! 😭
+**Force majeure :** Currently `QScreenCast` only works on windows! 😭
 
-QScreenCast needs the [Qt Multimedia](https://doc.qt.io/qt-5/multimediaoverview.html) module. 
-- On **conda-forge** we have a [pyqt==5.12.3](https://anaconda.org/conda-forge/pyqt), which is semi-broken because for windows the Multimedia module is present, but for Linux & macOS they it is not ... 🙈 🙉 🙊
+`QScreenCast` needs the [Qt Multimedia](https://doc.qt.io/qt-5/multimediaoverview.html) module. 
+- On **conda-forge** we have a [pyqt==5.12.3](https://anaconda.org/conda-forge/pyqt), which is semi-broken because for windows the Multimedia module is present, but for Linux & macOS it is not ... 🙈 🙉 🙊
 - On **anaconda** the situation is even worse, as there the latest [pyqt==5.9.2](https://anaconda.org/anaconda/pyqt) and the Multimedia module is omitted all toghether. 😩
 - On **PyPi** the situation is different, there one can use [PyQt**5**==5.15.4](https://pypi.org/project/PyQt5/) and there (I presume) the Multimedia module is available ... however that opens [yet another can of worms](https://www.youtube.com/watch?v=Ul79ihg41Rs) ...
 
-That being said, [conda-forge/pyqt](https://github.com/conda-forge/pyqt-feedstock/issues) is working on a 5.15 with all the goodies for all platforms (including [M1](https://www.apple.com/mac/m1/) 😍) but the ETA for that is mid 2021.
+That being said, [conda-forge/pyqt](https://github.com/conda-forge/pyqt-feedstock/issues) is working on a `pyqt==5.15.x` with all the goodies for all platforms (including [M1](https://www.apple.com/mac/m1/) 😍) but the ETA for that is mid 2021.
 
-The current implementation is a fist (granted a bit naive) attempt, but we are gearing up to make a second iteration, this time by using [GStreamer](https://gstreamer.freedesktop.org/) under the hood! 😎
+The current implementation of `QScreenCast` is a fist (granted a bit naïve) attempt, but we are gearing up to make a second iteration, this time by using [GStreamer](https://gstreamer.freedesktop.org/) under the hood! 😎
 
 
 ## Installation
@@ -43,7 +44,7 @@ The current implementation is a fist (granted a bit naive) attempt, but we are g
 
 ### pip
 
-prior to installing, you need to install [ffmpeg on your system](https://www.ffmpeg.org/download.html#build-windows)
+Prior to installing `QScreenCast`, you need to install [ffmpeg](https://www.ffmpeg.org/download.html#build-windows)  on your system somehow.
 
 ```bash
 me@mybox:~$ pip install QScreenCast
@@ -91,4 +92,3 @@ Long story short, you shouldn't have to mess with options, just start/stop your 
   - CABAC
   - frame rate = 15 fps
   - 4:2:0 Chroma subsampling
-
