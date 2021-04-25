@@ -32,11 +32,6 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     package_data={'QScreenCast': ['countdown.gif']},
-    # See: https://setuptools.readthedocs.io/en/latest/setuptools.html
-    entry_points={
-        "spyder.plugins": [
-            "screencast = QScreenCast.spyder.plugin:ScreenCast"
-        ],
     },
     # See: https://pypi.org/classifiers/
     classifiers=[  
