@@ -70,3 +70,4 @@ setup(
     platforms=["Windows"],
     install_requires=install_requires,
     python_requires='>=3.6',
+)
