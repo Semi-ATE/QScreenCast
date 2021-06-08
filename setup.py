@@ -32,7 +32,6 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     package_data={'QScreenCast': ['countdown.gif']},
-    },
     # See: https://pypi.org/classifiers/
     classifiers=[  
         'License :: OSI Approved :: MIT License',
