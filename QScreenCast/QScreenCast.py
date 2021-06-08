@@ -523,6 +523,11 @@ class Combiner(Process):
         images = os.path.join(self.images, "image%7d.jpg")
         command = f"ffmpeg -framerate {frame_rate} -start_number 0 -i {images} -i {self.audio} -c:v libx264 -crf 25 -pix_fmt yuv420p {self.output}"
         os.system(command)
+        # remove the still images (issue #32)
+        print(f"removing {len(os.listdir(self.images))} still images ... ", end='')
+        for still_image in os.listdir(self.images):
+            os.remove(os.path.join(self.images, still_image))
+        print("done.")
         if self.verbose:
             print(f"Done. ({command})")
 
