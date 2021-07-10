@@ -19,7 +19,6 @@ A no-nonsense [screen-caster](https://en.wikipedia.org/wiki/Screencast) behind a
 
 [![GitHub issues](https://img.shields.io/github/issues/Semi-ATE/QScreenCast)](https://github.com/Semi-ATE/QScreenCast/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/Semi-ATE/QScreenCast)](https://github.com/Semi-ATE/QScreenCast/pulls)
-![Conda downloads](https://img.shields.io/conda/dn/conda-forge/QScreenCast?color=brightgreen)
 
 A library that exposes a no-nonsense screen caster behind a QToolButton to be incorporated in any Python/Qt application.
 
