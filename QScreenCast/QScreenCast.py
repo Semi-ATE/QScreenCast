@@ -62,9 +62,7 @@ class ScreenCastToolButton(QtWidgets.QToolButton):
 
     rightClicked = QtCore.Signal()
 
-    video_sizes = {240: ((462, 240), ''),
-                   360: ((640, 360), ''),
-                   480: ((854, 480), ''),
+    video_sizes = {480: ((854, 480), ''),
                    720: ((1280, 720), ''),
                    1080: ((1920, 1080), 'aka 1K'),
                    1440: ((2560, 1440), 'aka 2K'),
