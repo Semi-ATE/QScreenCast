@@ -78,8 +78,6 @@ Long story short, you shouldn't have to mess with options, just start/stop your 
 ## Recording formats
 
 - Sizes:
-  - 462 x 240 (aka 240p)
-  - 640 x 360 (aka 360p)
   - 854 x 480 (aka 480p)
   - 1280 x 720 (aka 720p)
   - 1920 x 1080 (aka 1080p and 1K)
