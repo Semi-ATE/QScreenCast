@@ -13,7 +13,7 @@ A no-nonsense [screen-caster](https://en.wikipedia.org/wiki/Screencast) behind a
 [![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/Semi-ATE/QScreenCast/latest)](https://github.com/Semi-ATE/QScreenCast)
 [![PyPI](https://img.shields.io/pypi/v/QScreenCast?color=blue&label=PyPI)](https://pypi.org/project/QScreenCast/)
 [![Conda (channel only)](https://img.shields.io/conda/vn/conda-forge/QScreenCast?color=blue&label=conda-forge)](https://anaconda.org/conda-forge/qscreencast)
-[![conda-forge feedstock](https://img.shields.io/badge/conda--forge-feedstock-blue)](https://github.com/conda-forge/QScreenCast-feedstock)
+[![conda-forge feedstock](https://img.shields.io/github/issues-pr/conda-forge/qscreencast-feedstock?label=feedstock)](https://github.com/conda-forge/QScreenCast-feedstock)
 
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/QScreenCast?color=g&label=PyPI%20downloads)
 ![Conda](https://img.shields.io/conda/dn/conda-forge/qscreencast?color=g&label=conda-forge%20downloads)
