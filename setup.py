@@ -64,8 +64,7 @@ setup(
         'screencast',
         'qt',
     ],
-#    platforms=["Windows", "Linux", "MacOS"],
-    platforms=["Windows"],
+    platforms=["Windows", "Linux", "MacOS"],
     install_requires=install_requires,
     python_requires='>=3.7',
 )
