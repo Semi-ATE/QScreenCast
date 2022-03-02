@@ -4,7 +4,7 @@ A no-nonsense [screen-caster](https://en.wikipedia.org/wiki/Screencast) behind a
 
 [![GitHub](https://img.shields.io/github/license/Semi-ATE/QScreenCast?color=black)](https://github.com/Semi-ATE/QScreenCast/blob/main/LICENSE)
 [![Conda](https://img.shields.io/conda/pn/conda-forge/QScreenCast?color=black)](https://anaconda.org/conda-forge/QScreenCast)
-![Supported Python versions](https://img.shields.io/badge/python-%3E%3D3.6-black)
+![Supported Python versions](https://img.shields.io/badge/python-%3E%3D3.7-black)
 
 [![CI](https://github.com/Semi-ATE/QScreenCast/workflows/CI/badge.svg?branch=master)](https://github.com/Semi-ATE/QScreenCast/actions?query=workflow%3ACI)
 [![CD](https://github.com/Semi-ATE/QScreenCast/workflows/CD/badge.svg)](https://github.com/Semi-ATE/QScreenCast/actions?query=workflow%3ACD)
