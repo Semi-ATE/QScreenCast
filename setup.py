@@ -15,9 +15,8 @@ with open(os.path.join(here, "README.md"), "r", encoding="utf-8") as f:
     Project_description = f.read()
 
 install_requires = [
-    'qtpy>=1.5.0',
-    'pyqt5<5.13',
-    'qtawesome>=1.0.2',
+    'pyqt>=5.15.4',
+    'qtawesome',
 ]
 
 setup(
@@ -68,5 +67,5 @@ setup(
 #    platforms=["Windows", "Linux", "MacOS"],
     platforms=["Windows"],
     install_requires=install_requires,
-    python_requires='>=3.6',
+    python_requires='>=3.7',
 )
