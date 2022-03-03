@@ -7,6 +7,9 @@ on:
 jobs:
   make-release:
     runs-on: ubuntu-latest
+        defaults:
+          run:
+            shell: bash -l {0}
     steps:
 
       - name: Checkout project
@@ -17,37 +20,32 @@ jobs:
         with:
           miniconda-version: "latest" 
           python-version: "3.8"
-          channel-priority: "strict"
+          channel-priority: "flexible"
           channels: "conda-forge"  
           mamba-version: "*"
           show-channel-urls: true 
 
       - name: Setup project dependencies
         run: |
-          mamba install -n test --file requirements/conda_run.txt -c conda-forge -y -q
-          mamba install -n test --file requirements/conda_test.txt -c conda-forge -y -q
+          mamba install --file requirements/conda_run.txt -c semi-ate -y -q
+          mamba install --file requirements/conda_test.txt -c semi-ate -y -q
 
       - name: Tag to version
         run: echo "__version__='${GITHUB_REF#refs/*/}'" >> QScreenCast/__init__.py
 
       - name: Run tests
-        shell: bash -l {0}
         run: pytest tests/ --cov=QScreenCast
 
       - name: Create package
-        shell: bash -l {0}
         run: python setup.py sdist 
 
       - name: Check package
-        shell: bash -l {0}
         run: twine check dist/*
 
       - name: Check manifest
-        shell: bash -l {0}
         run: check-manifest
 
       - name: Upload to PyPI
-        shell: bash -l {0}
         env:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}

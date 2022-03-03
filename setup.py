@@ -14,10 +14,13 @@ here = os.path.dirname(os.path.abspath(__file__))
 with open(os.path.join(here, "README.md"), "r", encoding="utf-8") as f:
     Project_description = f.read()
 
-install_requires = [
-    'pyqt>=5.15.4',
-    'qtawesome',
-]
+
+install_requires = []
+with open(os.path.join(here, "requirements", "conda_run.txt")) as f:
+    for line in f:
+        line = line.strip()
+        if line != "":
+            install_requires.append(line)
 
 setup(
     name="QScreenCast",
