@@ -17,7 +17,7 @@ jobs:
         with:
           miniconda-version: "latest" 
           python-version: "3.8"
-          channel-priority: "strict"
+          channel-priority: "flexible"
           channels: "conda-forge"  
           mamba-version: "*"
           show-channel-urls: true 
