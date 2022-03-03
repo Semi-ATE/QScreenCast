@@ -38,7 +38,7 @@ That being said, [conda-forge/pyqt](https://github.com/conda-forge/pyqt-feedstoc
 
 Q1/2022 is more than half way now, and eventhough the whole `qt 5.15.4` has been pre-chewed by @andfoy (aka [Edgar Margffoy](https://github.com/andfoy)) the conda-forge community only managed to publish the [qt-main](https://anaconda.org/conda-forge/qt-main) package ... there are 5 more packages more to publish !!! 👎😭😤🤬 
 
-We are tired waiting for those at conda-forge that are responsible to move their asses, so we published the other packages on the [Semi-ATE channel](https://anaconda.org/Semi-ATE).
+After waiting more than **ONE YEAR** on the conda-forge community, we are moving forward regardless, so we published the other packages on the [Semi-ATE channel](https://anaconda.org/Semi-ATE).
 
 If you are installing conda with the [maxiconda](https://www.maxiconda.org/) installer, the `Semi-ATE` channel is readily available, and you have access to qt 5.15.4 ! 😛
 
