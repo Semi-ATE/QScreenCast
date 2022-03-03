@@ -7,6 +7,9 @@ on:
 jobs:
   make-release:
     runs-on: ubuntu-latest
+        defaults:
+          run:
+            shell: bash -l {0}
     steps:
 
       - name: Checkout project
@@ -31,23 +34,18 @@ jobs:
         run: echo "__version__='${GITHUB_REF#refs/*/}'" >> QScreenCast/__init__.py
 
       - name: Run tests
-        shell: bash -l {0}
         run: pytest tests/ --cov=QScreenCast
 
       - name: Create package
-        shell: bash -l {0}
         run: python setup.py sdist 
 
       - name: Check package
-        shell: bash -l {0}
         run: twine check dist/*
 
       - name: Check manifest
-        shell: bash -l {0}
         run: check-manifest
 
       - name: Upload to PyPI
-        shell: bash -l {0}
         env:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
