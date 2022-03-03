@@ -3,21 +3,27 @@ channels:
   - conda-forge
   - semi-ate
 dependencies:
-  - python=3.9
-  - anaconda-client
-  - conda-build
-  - mamba
-  - qtpy>=2.0.1
+  - conda-forge::python=3.9
+  - conda-forge::anaconda-client
+  - conda-forge::conda-build
+  - conda-forge::mamba
+  - conda-forge::qtpy>=2.0.1
+  - conda-forge::qt-main
   - semi-ate::pyqt>=5.15.4
-  - qtawesome>=1.1.1
-  - ffmpeg
-  - packaging
-  - qdarkstyle
-  - mock
-  - pytest-qt
-  - pytest==6.1.1
-  - pytest-cov
-  - pytest-mock
-  - coverage
-  - check-manifest
-  - twine
+  - semi-ate::pyqt5-sip
+  - semi-ate::pyqtwebengine
+  - semi-ate::pyqtchare
+  - semi-ate::pyqt-impl
+  - semi-ate::qt-webengine
+  - conda-forge::qtawesome>=1.1.1
+  - conda-forge::ffmpeg
+  - conda-forge::packaging
+  - conda-forge::qdarkstyle
+  - conda-forge::mock
+  - conda-forge::pytest-qt
+  - conda-forge::pytest==6.1.1
+  - conda-forge::pytest-cov
+  - conda-forge::pytest-mock
+  - conda-forge::coverage
+  - conda-forge::check-manifest
+  - conda-forge::twine
