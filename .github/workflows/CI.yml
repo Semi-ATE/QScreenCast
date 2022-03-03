@@ -16,7 +16,7 @@ jobs:
         uses: conda-incubator/setup-miniconda@v2
         with:
           python-version: 3.9
-          mamba-version: 0.17.0
+          mamba-version: 0.16.0
           channels: conda-forge, semi-ate
           channel-priority: flexible        
           show-channel-urls: true 
