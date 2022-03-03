@@ -24,8 +24,8 @@ jobs:
 
       - name: Setup project dependencies
         run: |
-          mamba install -n test --file requirements/conda_run.txt -c semi-ate -y -q
-          mamba install -n test --file requirements/conda_test.txt -c semi-ate -y -q
+          mamba install --file requirements/conda_run.txt -c semi-ate -y -q
+          mamba install --file requirements/conda_test.txt -c semi-ate -y -q
           
       - name: Run tests
         run: pytest tests/ --cov=QScreenCast
