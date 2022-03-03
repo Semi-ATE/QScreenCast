@@ -40,7 +40,7 @@ Q1/2022 is more than half way now, and eventhough the whole `qt 5.15.4` has been
 
 After waiting more than **ONE YEAR** on the conda-forge community, we are moving forward regardless, so we published the other packages on the [Semi-ATE channel](https://anaconda.org/Semi-ATE).
 
-If you are installing conda with the [maxiconda](https://www.maxiconda.org/) installer, the `Semi-ATE` channel is readily available, and you have access to qt 5.15.4 ! 😛
+If you are installing conda with the [maxiconda](https://www.maxiconda.org/) installer, the `Semi-ATE` channel is readily available, and you have access to qt 5.15.4 out of the box ! 😛
 
 Here is the status at the time of writing :
 
