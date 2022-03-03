@@ -24,8 +24,8 @@ jobs:
 
       - name: Setup project dependencies
         run: |
-          mamba install -n test --file requirements/conda_run.txt -c conda-forge -y -q
-          mamba install -n test --file requirements/conda_test.txt -c conda-forge -y -q
+          mamba install -n test --file requirements/conda_run.txt -c semi-ate -y -q
+          mamba install -n test --file requirements/conda_test.txt -c semi-ate -y -q
 
       - name: Tag to version
         run: echo "__version__='${GITHUB_REF#refs/*/}'" >> QScreenCast/__init__.py
