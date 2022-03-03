@@ -13,7 +13,7 @@ jobs:
       - name: Install mamba & environment
         uses: mamba-org/provision-with-micromamba@v11
         with:
-          environment-file: requirements/mamba_environment.yaml
+          environment-file: requirements/mamba_environment.yml
 
       - name: Run tests
         shell: bash -l {0}
