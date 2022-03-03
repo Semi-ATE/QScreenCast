@@ -44,7 +44,7 @@ If you are installing conda with the [maxiconda](https://www.maxiconda.org/) ins
 
 Here is the status at the time of writing :
 
-![image](https://user-images.githubusercontent.com/3516972/156669594-b1379e39-b49e-43be-996e-4b9592144704.png)
+![image](https://user-images.githubusercontent.com/3516972/156670788-af96e6a9-b483-421a-a8a4-b5d85c6a146d.png)
 
 The current implementation of `QScreenCast` is a fist (granted a bit naïve) attempt, but we are gearing up to make a second iteration, this time by using [GStreamer](https://gstreamer.freedesktop.org/) under the hood! 😎
 
