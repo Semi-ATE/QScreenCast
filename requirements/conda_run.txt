@@ -1,6 +1,6 @@
-qtpy>=1.5.0
-pyqt<5.13
-qtawesome>=1.0.2
+qtpy>=2.0.1
+pyqt>5.15.4
+qtawesome>=1.1.1
 ffmpeg
 packaging
 qdarkstyle
