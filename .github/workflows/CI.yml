@@ -5,11 +5,13 @@ on: [push]
 jobs:
   build_and_test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -l {0}
     steps:
-
       - name: Checkout project
         uses: actions/checkout@v2
-
+        
       - name: Setup miniconda
         uses: conda-incubator/setup-miniconda@v2
         with:
@@ -18,20 +20,20 @@ jobs:
           channels: conda-forge, semi-ate
           channel-priority: flexible        
           show-channel-urls: true 
-          environment-file: requirements/mamba_environment.yml
 
+      - name: Setup environment
+        run: |
+          mamba install --file requirements/conda_run.txt -y -q
+          mamba install --file requirements/conda_test.txt -y -q 
+          
       - name: Run tests
-        shell: bash -l {0}
         run: pytest tests/ --cov=QScreenCast
 
       - name: Create package
-        shell: bash -l {0}
         run: python setup.py sdist 
 
       - name: Check package
-        shell: bash -l {0}
         run: twine check dist/*
 
       - name: Check manifest
-        shell: bash -l {0}
         run: check-manifest
