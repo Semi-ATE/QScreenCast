@@ -30,7 +30,7 @@ A library that exposes a no-nonsense screen caster behind a QToolButton to be in
 `QScreenCast` needs the [Qt Multimedia](https://doc.qt.io/qt-5/multimediaoverview.html) module. 
 - On **conda-forge** we have a [pyqt==5.12.3](https://anaconda.org/conda-forge/pyqt), which is semi-broken because for windows the Multimedia module is present, but for Linux & macOS it is not ... 🙈 🙉 🙊
 - On **anaconda** the situation is even worse, as there the latest [pyqt==5.9.2](https://anaconda.org/anaconda/pyqt) and the Multimedia module is omitted all toghether. 😩
-- On **PyPi** the situation is different, there one can use [PyQt**5**==5.15.4](https://pypi.org/project/PyQt5/) and there (I presume) the Multimedia module is available ... however that opens [yet another can of worms](https://www.youtube.com/watch?v=Ul79ihg41Rs) ...
+- On **PyPi** the situation is different, there one can use [PyQt**5**==5.15.4](https://pypi.org/project/PyQt5/) and there (I presume) the Multimedia module is available ... however that opens [yet another can of worms](https://youtu.be/Ul79ihg41Rs?t=29) ...
 
 That being said, [conda-forge/pyqt](https://github.com/conda-forge/pyqt-feedstock/issues) is working on a `pyqt==5.15.x` with all the goodies for all platforms (including [M1](https://www.apple.com/mac/m1/) 😍) but the ETA for that is mid 2021.
 
