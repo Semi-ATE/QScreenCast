@@ -34,6 +34,18 @@ A library that exposes a no-nonsense screen caster behind a QToolButton to be in
 
 That being said, [conda-forge/pyqt](https://github.com/conda-forge/pyqt-feedstock/issues) is working on a `pyqt==5.15.x` with all the goodies for all platforms (including [M1](https://www.apple.com/mac/m1/) 😍) but the ETA for that is mid 2021.
 
+#### update
+
+Q1/2022 is more than half way now, and eventhough the whole `qt 5.15.4` has been pre-chewed by @andfoy (aka [Edgar Margffoy](https://github.com/andfoy)) the conda-forge community only managed to publish the [qt-main](https://anaconda.org/conda-forge/qt-main) package ... there are 5 more packages more to publish !!! 👎😭😤🤬 
+
+We are tired waiting for those at conda-forge that are responsible to move their asses, so we published the other packages on the [Semi-ATE channel](https://anaconda.org/Semi-ATE).
+
+If you are installing conda with the [maxiconda](https://www.maxiconda.org/) installer, the `Semi-ATE` channel is readily available, and you have access to qt 5.15.4 ! 😛
+
+Here is the status at the time of writing :
+
+![image](https://user-images.githubusercontent.com/3516972/156667618-cd5578f1-8307-4eba-a92a-e45054b75820.png)
+
 The current implementation of `QScreenCast` is a fist (granted a bit naïve) attempt, but we are gearing up to make a second iteration, this time by using [GStreamer](https://gstreamer.freedesktop.org/) under the hood! 😎
 
 
