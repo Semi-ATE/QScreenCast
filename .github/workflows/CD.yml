@@ -12,10 +12,20 @@ jobs:
       - name: Checkout project
         uses: actions/checkout@v2
 
-      - name: Install mamba & environment
-        uses: mamba-org/provision-with-micromamba@v11
+      - name: Setup miniconda
+        uses: conda-incubator/setup-miniconda@v2
         with:
-          environment-file: ./requirements/mamba_environment.yaml
+          miniconda-version: "latest" 
+          python-version: "3.8"
+          channel-priority: "strict"
+          channels: "conda-forge"  
+          mamba-version: "*"
+          show-channel-urls: true 
+
+      - name: Setup project dependencies
+        run: |
+          mamba install -n test --file requirements/conda_run.txt -c conda-forge -y -q
+          mamba install -n test --file requirements/conda_test.txt -c conda-forge -y -q
 
       - name: Tag to version
         run: echo "__version__='${GITHUB_REF#refs/*/}'" >> QScreenCast/__init__.py

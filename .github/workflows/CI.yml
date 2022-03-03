@@ -13,19 +13,19 @@ jobs:
         uses: actions/checkout@v2
         
       - name: Setup miniconda
-        uses: conda-incubator/setup-miniconda@v2.0.0
+        uses: conda-incubator/setup-miniconda@v2
         with:
-          python-version: 3.8
-#          mamba-version: 0.16.0
-          channels: conda-forge, semi-ate
-          channel-priority: flexible        
+          miniconda-version: "latest" 
+          python-version: "3.8"
+          channel-priority: "strict"
+          channels: "conda-forge"  
+          mamba-version: "*"
           show-channel-urls: true 
 
-      - name: Setup environment
+      - name: Setup project dependencies
         run: |
-          conda install mamba -y -q
-          mamba install --file requirements/conda_run.txt -y -q
-          mamba install --file requirements/conda_test.txt -y -q 
+          mamba install -n test --file requirements/conda_run.txt -c conda-forge -y -q
+          mamba install -n test --file requirements/conda_test.txt -c conda-forge -y -q
           
       - name: Run tests
         run: pytest tests/ --cov=QScreenCast
