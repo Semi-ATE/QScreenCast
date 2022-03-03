@@ -16,13 +16,14 @@ jobs:
         uses: conda-incubator/setup-miniconda@v2
         with:
           python-version: 3.9
-          mamba-version: 0.16.0
+#          mamba-version: 0.16.0
           channels: conda-forge, semi-ate
           channel-priority: flexible        
           show-channel-urls: true 
 
       - name: Setup environment
         run: |
+          conda install mamba -y -q
           mamba install --file requirements/conda_run.txt -y -q
           mamba install --file requirements/conda_test.txt -y -q 
           
