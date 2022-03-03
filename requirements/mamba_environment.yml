@@ -1,0 +1,23 @@
+name: test
+channels:
+  - conda-forge
+  - semi-ate
+dependencies:
+  - python=3.9
+  - anaconda-client
+  - conda-build
+  - mamba
+  - qtpy>=2.0.1
+  - pyqt>=5.15.4
+  - qtawesome>=1.1.1
+  - ffmpeg
+  - packaging
+  - qdarkstyle
+  - mock
+  - pytest-qt
+  - pytest==6.1.1
+  - pytest-cov
+  - pytest-mock
+  - coverage
+  - check-manifest
+  - twine
