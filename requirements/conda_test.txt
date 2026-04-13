@@ -1,6 +1,6 @@
 mock
 pytest-qt
-pytest==6.1.1
+pytest==9.0.3
 pytest-cov
 pytest-mock
 coverage
